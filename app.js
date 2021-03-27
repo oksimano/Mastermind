@@ -1,5 +1,5 @@
 function generateDigit() {
-  randomArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  
   return String(Math.trunc(Math.random() * 9.0) + 1);
 }
 
@@ -19,10 +19,25 @@ function generateSecret() {
 
 function readGuess() {
   let userGuess = {};
-
-  while ( userGuess == null ||userGuess.length !== 4 ){
+  console.log(Number(userGuess));
+/*
+  while ( isNaN(userGuess) && userGuess.length !== 4 && isNaN(Number(userGuess)) ){
     userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
-  } 
+  } */
+
+ /* do {
+    userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
+    console.log("Szám-e" , Number(userGuess));
+    
+    console.log(isNaN(userGuess));
+   
+  }while ( !isNaN(userGuess) && !isNaN(Number(userGuess)) && userGuess.length !== 4 );*/
+
+  userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
+  if ( isNaN(userGuess) || isNaN(Number(userGuess)) ||  userGuess.length != 4 ){
+    readGuess();
+  }
+
   return userGuess.split("");
 }
 
@@ -47,7 +62,7 @@ function getBlackCount(guess, secret) {
 
 function getWhiteCount(guess, secret) {
   let found = 0;
-  let hint = secret.slice(0);
+  
   for (let ch = 0; ch < guess.length; ++ch) {
     if (guess[ch] !== secret[ch]) {
       for (let x of secret) {
@@ -74,7 +89,7 @@ function restart() {
   let restart = prompt("Akarsz új játékot kezdeni? I/N");
   if (restart === "i") {
     console.log("Új játék");
-    gameLoop(10);
+    gameLoop();
   } else {
     return;
   }
