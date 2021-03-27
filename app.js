@@ -25,7 +25,7 @@ function readGuess() {
     userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
   } */
 
- /* do {
+  do {
     userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
     console.log("Szám-e" , Number(userGuess));
     
@@ -34,7 +34,7 @@ function readGuess() {
   }while ( !isNaN(userGuess) && !isNaN(Number(userGuess)) && userGuess.length !== 4 );*/
 
   userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
-  if ( isNaN(userGuess) || isNaN(Number(userGuess)) ||  userGuess.length != 4 ){
+  if ( isNaN(userGuess) || isNaN(Number(userGuess)) || userGuess.length != 4 ){
     readGuess();
   }
 
