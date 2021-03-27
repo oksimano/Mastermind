@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.field {
+    width: 250px;
+    margin: 0 auto;
+    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+    &__item{
+
+        width: 50px;
+        background-color: #eee;
+        padding: 25px;
+        border-radius: 50%;
+        border: 1px solid gray;
+        margin: 2px auto;
+    }
+    
+}

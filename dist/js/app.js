@@ -1,3 +1,20 @@
+function board() {
+  let divArr = [];
+  for ( let i = 0; i < 12; i++) {
+      for (let j = 0; j < 4; j++) {
+          divArr.push(`<div class="field__item field__item${j}"></div>`);
+          
+      }
+     
+  }
+  document.querySelector('.field').innerHTML = divArr.join('');
+  
+  document.querySelector('.js-start').addEventListener('click', gameLoop);
+}
+
+
+
+
 function generateDigit() {
   
   return String(Math.trunc(Math.random() * 9.0) + 1);
@@ -18,14 +35,14 @@ function generateSecret() {
 
 
 function readGuess() {
-  let userGuess = {};
-  console.log(Number(userGuess));
+  let userGuess = [];
+  
 /*
   while ( isNaN(userGuess) && userGuess.length !== 4 && isNaN(Number(userGuess)) ){
     userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
   } */
 
-  do {
+ /* do {
     userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
     console.log("Szám-e" , Number(userGuess));
     
@@ -34,11 +51,15 @@ function readGuess() {
   }while ( !isNaN(userGuess) && !isNaN(Number(userGuess)) && userGuess.length !== 4 );*/
 
   userGuess = prompt("Adj meg 4 különböző számot 1 és 9 közt! Mi a tipped?");
-  if ( isNaN(userGuess) || isNaN(Number(userGuess)) || userGuess.length != 4 ){
+/*  console.log(isNaN(userGuess));
+  console.log(isNaN(Number(userGuess)));
+  console.log(userGuess);*/
+  if ( isNaN(userGuess) || isNaN(Number(userGuess)) || userGuess == " " || userGuess.length != 4 ){
+    
     readGuess();
   }
-
-  return userGuess.split("");
+  let userGuessSplit = userGuess.split("");
+  return userGuessSplit;
 }
 
 
@@ -98,7 +119,7 @@ function restart() {
 function gameLoop() {
   const possibility = 10;
   const secret = generateSecret();
-  console.log(secret);
+  console.log("Titok", secret);
   let attempt = 1;
   while (attempt < possibility + 1) {
     console.log(`${attempt}. lehetőség!`);
@@ -121,4 +142,4 @@ function gameLoop() {
     attempt += 1;
   }
 }
-document.querySelector('.js-start').addEventListener('click', gameLoop );
+board();
