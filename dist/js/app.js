@@ -154,7 +154,7 @@ function gameLoop() {
     console.log("Játékos tippje", guess);
     let BlackCount = getBlackCount(guess, secret);
     let whiteCount = getWhiteCount(guess, secret);
-    let drawColor = colors(guess, secret, attempt);
+    //let drawColor = colors(guess, secret, attempt);
     if (isGameWon(BlackCount)) {
       console.log("Nyertél");
       restart();
