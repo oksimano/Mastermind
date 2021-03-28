@@ -7,7 +7,7 @@ const green = 6;
 const brown = 7;
 const purple = 8;
 const cyan = 9;
-const colorsArr = ["red", "grey", "orange", "yellow", "blue", "green", "brown", "purple", "cyan"]
+
 function board() {
   let divArr = [];
   for ( let i = 10; i > 0; i--) {
@@ -25,9 +25,12 @@ function board() {
 /* Egyes tippek, és a titkos kód kirajzolása színek szerint*/
 
 function colors(guess, secret, attempt){
+  const colorsArr = ["white", "red", "grey", "orange", "yellow", "blue", "green", "brown", "purple", "cyan"]
   for (elem of guess) {
+    let numberOfColors = colorsArr[elem];
+    console.log("number", numberOfColors);
     console.log("elem: ", elem);
-    document.querySelector(`.row${attempt}field__item${elem}`).classList.add('red');
+    document.querySelector(`.row${attempt}field__item${elem}`).classList.add(numberOfColors);
   }
  /* document.querySelector(`.row${possibility}field__item${secret[elem]}').classList.add('red'`)*/
  return;
