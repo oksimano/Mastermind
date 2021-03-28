@@ -24,3 +24,7 @@
   border: 1px solid gray;
   margin: 2px auto;
 }
+
+.red {
+  background-color: #E30000;
+}

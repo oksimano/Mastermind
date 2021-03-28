@@ -1,3 +1,7 @@
+$red : #E30000;
+
+
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -21,4 +25,8 @@
         margin: 2px auto;
     }
     
+}
+
+.red {
+    background-color: $red;
 }
