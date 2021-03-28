@@ -5,10 +5,14 @@
   margin: 0;
 }
 
+body {
+  font-size: 10px;
+  background-color: #d3d2d2;
+}
+
 .field {
   width: 250px;
   margin: 0 auto;
-  background-color: red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +22,6 @@
 
 .field__item {
   width: 50px;
-  background-color: #eee;
   padding: 25px;
   border-radius: 50%;
   border: 1px solid gray;
@@ -26,5 +29,37 @@
 }
 
 .red {
-  background-color: #E30000;
+  background-color: red;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.cyan {
+  background-color: cyan;
 }

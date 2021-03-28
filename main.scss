@@ -1,24 +1,35 @@
-$red : #E30000;
-
-
+$red : red;
+$grey : grey;
+$orange : orange;
+$yellow : yellow;
+$blue : blue;
+$green : green;
+$brown : brown;
+$purple : purple;
+$cyan : cyan;
+$bgcolor: rgb(182, 180, 180);
+$bodycolor : rgb(211, 210, 210);
 
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-
+body{
+    font-size: 10px;
+    background-color: $bodycolor;
+}
 
 .field {
     width: 250px;
     margin: 0 auto;
-    background-color: red;
+   
     display: flex;
     flex-wrap: wrap;
-    &__item{
+    &__item {
 
         width: 50px;
-        background-color: #eee;
+        
         padding: 25px;
         border-radius: 50%;
         border: 1px solid gray;
@@ -29,4 +40,28 @@ $red : #E30000;
 
 .red {
     background-color: $red;
+}
+.grey {
+    background-color: $grey;
+}
+.orange {
+    background-color: $orange;
+}
+.yellow {
+    background-color: $yellow;
+}
+.blue {
+    background-color: $blue;
+}
+.green {
+    background-color: $green;
+}
+.brown {
+    background-color: $brown;
+}
+.purple {
+    background-color: $purple;
+}
+.cyan {
+    background-color: $cyan;
 }
