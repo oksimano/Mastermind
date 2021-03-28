@@ -1,5 +1,5 @@
 
-const colorsArr = ["white", "red", "grey", "orange", "yellow", "blue", "green", "brown", "purple", "cyan"]
+const colorsArr = ["white", "red", "grey", "orange", "yellow", "blue", "green", "brown", "purple", "cyan"];
 function board() {
   let divArr = [];
   let pickArr = [];
@@ -22,22 +22,27 @@ function board() {
 
 /* Egyes tippek, és a titkos kód kirajzolása színek szerint*/
 
-/*function colors(guess, secret, attempt){
+function colors(guess, secret, attempt){
   let numberOfColors = [];
-  for (elem of guess) {
+  for (let elem in guess) {
     
-    numberOfColors.push(elem);
+    numberOfColors = colorsArr[guess[elem]];
+    console.log(guess[elem]);
+    console.log("number", numberOfColors);
+    console.log("elem: ", elem);
+    let sum = Number(elem) + 1;
+    console.log(sum);
+    document.querySelector(`.row${attempt}field__item${sum}`).classList.add(numberOfColors);
+      
+    
+
+    
+  }
   
-    
-  }
-  console.log(numberOfColors)
-  for (let one = 1; one < 5; one++) {  
-    document.querySelector(`.row${attempt}field__item${one}`).classList.add(numberOfColors[one]);
-  }
 
 //document.querySelector(`.row${possibility}field__item${secret[elem]}').classList.add('red'`)
  return;
-}*/
+}
 
 
 /* Titkos kód generálása */
@@ -154,7 +159,7 @@ function gameLoop() {
     console.log("Játékos tippje", guess);
     let BlackCount = getBlackCount(guess, secret);
     let whiteCount = getWhiteCount(guess, secret);
-    //let drawColor = colors(guess, secret, attempt);
+    let drawColor = colors(guess, secret, attempt);
     if (isGameWon(BlackCount)) {
       console.log("Nyertél");
       restart();
