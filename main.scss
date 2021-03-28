@@ -10,33 +10,62 @@ $cyan : cyan;
 $bgcolor: rgb(182, 180, 180);
 $bodycolor : rgb(211, 210, 210);
 
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
-body{
+body {
     font-size: 10px;
     background-color: $bodycolor;
 }
+.wrapper {
+    padding: 2rem;
+    margin: 0 auto;
+    text-align: center;
+    h1 {
+        font-size: 2.5rem;
+        padding-bottom: 2rem;
+    }
+}
 
 .field {
-    width: 250px;
+    width: 200px;
     margin: 0 auto;
    
     display: flex;
     flex-wrap: wrap;
     &__item {
-
-        width: 50px;
-        
-        padding: 25px;
+        width: 40px;
+        padding: 20px;
         border-radius: 50%;
         border: 1px solid gray;
         margin: 2px auto;
     }
     
 }
+
+/* Választási lehetőségek */
+
+.pick {
+  @extend .field;
+  padding-top: 1.5rem;
+}
+
+
+/* Start gomb */
+.btn {
+    margin-top: 2rem;
+    padding: .5rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: .5s;
+    &:hover {
+        background-color: aqua;
+    }
+
+}
+
 
 .red {
     background-color: $red;

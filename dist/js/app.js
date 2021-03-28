@@ -1,40 +1,43 @@
-const red = 1;
-const grey = 2;
-const orange = 3;
-const yellow = 4;
-const blue = 5;
-const green = 6;
-const brown = 7;
-const purple = 8;
-const cyan = 9;
 
+const colorsArr = ["white", "red", "grey", "orange", "yellow", "blue", "green", "brown", "purple", "cyan"]
 function board() {
   let divArr = [];
+  let pickArr = [];
   for ( let i = 10; i > 0; i--) {
       for (let j = 1; j < 5; j++) {
-          divArr.push(`<div class=" field__item row${i}field__item${j}"></div>`);
-          
+          divArr.push(`<div class="field__item  row${i}field__item${j}"></div>`);
       }
-     
   }
+  for (let pick of colorsArr) {
+    pickArr.push(`<div class="field__item  ${pick}"></div>`);
+    
+  }
+  pickArr.shift(); // elvesszük a white-ot a tömbből 
+  console.log(pickArr);
   document.querySelector('.field').innerHTML = divArr.join('');
-  
+  document.querySelector('.pick').innerHTML = pickArr.join('');
+
   document.querySelector('.js-start').addEventListener('click', gameLoop);
 }
 
 /* Egyes tippek, és a titkos kód kirajzolása színek szerint*/
 
-function colors(guess, secret, attempt){
-  const colorsArr = ["white", "red", "grey", "orange", "yellow", "blue", "green", "brown", "purple", "cyan"]
+/*function colors(guess, secret, attempt){
+  let numberOfColors = [];
   for (elem of guess) {
-    let numberOfColors = colorsArr[elem];
-    console.log("number", numberOfColors);
-    console.log("elem: ", elem);
-    document.querySelector(`.row${attempt}field__item${elem}`).classList.add(numberOfColors);
+    
+    numberOfColors.push(elem);
+  
+    
   }
- /* document.querySelector(`.row${possibility}field__item${secret[elem]}').classList.add('red'`)*/
+  console.log(numberOfColors)
+  for (let one = 1; one < 5; one++) {  
+    document.querySelector(`.row${attempt}field__item${one}`).classList.add(numberOfColors[one]);
+  }
+
+//document.querySelector(`.row${possibility}field__item${secret[elem]}').classList.add('red'`)
  return;
-}
+}*/
 
 
 /* Titkos kód generálása */
