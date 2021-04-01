@@ -1,3 +1,5 @@
+$white: white;
+$black: black;
 $red: red;
 $grey: grey;
 $orange: orange;
@@ -23,15 +25,19 @@ body {
 	padding: 2rem;
 	margin: 0 auto;
 	text-align: center;
+
 	h1 {
 		font-size: 2.5rem;
 		padding-bottom: 2rem;
+	}
+	.container {
+		display: flex;
+		justify-content: center;
 	}
 }
 
 .field {
 	width: 200px;
-	margin: 0 auto;
 
 	display: flex;
 	flex-wrap: wrap;
@@ -46,11 +52,24 @@ body {
 
 /* Választási lehetőségek */
 .attempt {
+	width: 100px;
+	margin-left: 1.3rem;
 	display: flex;
+	flex-wrap: wrap;
+
+	.small__item {
+		width: 20px;
+		padding: 10px;
+		border-radius: 50%;
+		border: 1px solid gray;
+		margin: 12px auto;
+	}
 }
 .pick {
 	@extend .field;
 	padding-top: 1.5rem;
+	margin: 0 auto;
+	width: 250px;
 }
 
 /* Start gomb */
@@ -91,4 +110,10 @@ body {
 }
 .cyan {
 	background-color: $cyan;
+}
+.white {
+	background-color: $white;
+}
+.black {
+	background-color: $black;
 }
