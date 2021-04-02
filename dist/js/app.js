@@ -7,7 +7,6 @@ const OPTIONSOFCOLORS = [
 	"green",
 	"brown",
 	"purple",
-	"cyan",
 ];
 let classOfOptions = document.getElementsByClassName("js-choose"); //Kiválasztható szinek osztálya
 let guess = []; // Játékos által választott színek sorszáma, max 4 darab
@@ -23,15 +22,20 @@ let pickedColor = []; //A játékos által választott szín
 function drawBoard() {
 	let divArr = []; // Lehetséges választások megjelenítésére szolgáló tömb.
 	let pickColorsArr = []; // A választható szinek megjelenítésére szolgáló tömb
-
+	let secretCodeArr = []; // Titkós kód helye
 	let smallItemArr = []; // A segítség megjelenítsére szolgáló tömb
 	for (let i = 10; i >= 1; i--) {
 		for (let j = 0; j <= 3; j++) {
-			divArr.push(`<div class="field__item  row${i}column${j}"></div>`);
+			divArr.push(`<div class="field__item  row${i}column${j}"></div>`); // Lehetséges választások megjelenítésére szolgáló mező legenerálása..
 			smallItemArr.push(`<div class="small__item  column${j}row${i}"></div>`); //Tippek megjelenítésére szolgáló mező legenerálása
 		}
 	}
-
+	/*
+	 *	Titkós kód helyének legenerálása
+	 */
+	for (let k = 0; k <= 3; k++) {
+		secretCodeArr.push(`<div class=" field__item  secret__item${k}"></div>`);
+	}
 	/*
 	 **	Legenerálja a színválasztékot html formátumban
 	 */
@@ -44,6 +48,7 @@ function drawBoard() {
 	/*
 	 * A legenerált tömbök megjelenítése
 	 */
+	document.querySelector(".secret").innerHTML = secretCodeArr.join("");
 	document.querySelector(".field").innerHTML = divArr.join("");
 	document.querySelector(".attempt").innerHTML = smallItemArr.join("");
 	document.querySelector(".pick").innerHTML = pickColorsArr.join("");
@@ -51,12 +56,12 @@ function drawBoard() {
 
 /* Titkos kód generálása */
 /**
- * Legenerál egy '1' és '9' közötti számjegyet
+ * Legenerál egy '1' és '8' közötti számjegyet
  *
  * @return string
  */
 function generateDigit() {
-	return String(Math.trunc(Math.random() * 9.0) + 1);
+	return String(Math.trunc(Math.random() * 8.0) + 1);
 }
 
 /**
@@ -113,6 +118,13 @@ function getPickedColor(picked) {
 		guess = [];
 		pickedColor = [];
 		attempt += 1;
+	}
+
+	if (attempt === 11 || colorMatch === 4) {
+		drawSecretCode(secret);
+		//meghivni , hogy vége
+		//kiirni, hogy vége
+		//kirajzolni a titkos kódot
 	}
 }
 
@@ -217,6 +229,26 @@ function drawWhite(found, row, match) {
 			.classList.add(`white`);
 	}
 }
+/**
+ * Kirajzólja a titkós kódot a végén.
+ *
+ * Bemeneti értékei: titkós kód
+ *
+ * @return undefined
+ */
+function drawSecretCode(secret) {
+	let secretArr = [];
+	for (let secretItem of secret) {
+		secretArr.push(OPTIONSOFCOLORS[secretItem - 1]);
+	}
+
+	for (let i = 0; i <= 3; i++) {
+		document
+			.querySelector(`.secret__item${i}`)
+			.classList.add(`${secretArr[i]}`);
+	}
+}
+
 /*
  *	Indítás
  *
@@ -228,9 +260,10 @@ function gameLoop() {
 	attempt = 1;
 	pickedColor = [];
 	secret = generateSecret();
-	console.log("secretCode ", secret);
+	console.log("Titkos kód ", secret);
 	eventListener();
 }
+console.clear();
 window.addEventListener("DOMContentLoaded", (event) => {
 	console.log("DOM fully loaded and parsed");
 });

@@ -8,7 +8,7 @@ $blue: blue;
 $green: green;
 $brown: brown;
 $purple: purple;
-$cyan: cyan;
+$cyan: cyan; // tartalék
 $bgcolor: rgb(182, 180, 180);
 $bodycolor: rgb(211, 210, 210);
 
@@ -69,7 +69,7 @@ body {
 	@extend .field;
 	padding-top: 1.5rem;
 	margin: 0 auto;
-	width: 250px;
+	width: 200px;
 	cursor: pointer;
 	.field__item {
 		transition: 0.3s;
@@ -77,6 +77,13 @@ body {
 			transform: scale(1.15);
 		}
 	}
+}
+
+.secret {
+	display: flex;
+	width: 200px;
+	margin: 0 auto;
+	padding-bottom: 2rem;
 }
 
 /* Start gomb */
