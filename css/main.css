@@ -1,0 +1,152 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 10px;
+  background-color: #d3d2d2;
+}
+
+.wrapper {
+  padding: 2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wrapper h1 {
+  font-size: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.wrapper .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.field, .pick {
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.field__item {
+  width: 40px;
+  padding: 20px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  margin: 2px auto;
+}
+
+/* Választási lehetőségek */
+.attempt {
+  width: 100px;
+  margin-left: 1.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.attempt .small__item {
+  width: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  margin: 12px auto;
+}
+
+.pick {
+  padding-top: 1.5rem;
+  margin: 0 auto;
+  width: 200px;
+  cursor: pointer;
+}
+
+.pick .field__item {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.pick .field__item:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.secret {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+/* Start gomb */
+.btn {
+  margin-top: 2rem;
+  padding: 0.5rem 2rem;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-color: aqua;
+}
+
+.red {
+  background-color: red;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.cyan {
+  background-color: cyan;
+}
+
+.white {
+  background-color: white;
+}
+
+.black {
+  background-color: black;
+}
