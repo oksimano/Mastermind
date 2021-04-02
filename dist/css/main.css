@@ -71,6 +71,17 @@ body {
   padding-top: 1.5rem;
   margin: 0 auto;
   width: 250px;
+  cursor: pointer;
+}
+
+.pick .field__item {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.pick .field__item:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
 }
 
 /* Start gomb */

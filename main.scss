@@ -70,6 +70,13 @@ body {
 	padding-top: 1.5rem;
 	margin: 0 auto;
 	width: 250px;
+	cursor: pointer;
+	.field__item {
+		transition: 0.3s;
+		&:hover {
+			transform: scale(1.15);
+		}
+	}
 }
 
 /* Start gomb */
