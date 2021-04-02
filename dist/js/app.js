@@ -74,13 +74,19 @@ function eventListener() {
 }
 
 function getPickedColor(picked) {
+	let colorMatch;
+	let colorHint;
 	pickedColor.push(picked.currentTarget.dataset.which);
 	guess.push(colorsArr.indexOf(picked.currentTarget.dataset.which) + 1);
 
 	console.log(guess);
 	drawPickedColor(pickedColor, row);
 	if (guess.length === 4) {
-		colorsComparison(guess, secret);
+		colorMatch = colorsComparison(guess, secret);
+		console.log(colorMatch);
+		drawBlack(colorMatch, row);
+		colorHint = WhiteCount(guess, secret);
+		drawWhite(colorHint, row, colorMatch);
 		guess = [];
 		pickedColor = [];
 		row += 1;
@@ -116,15 +122,54 @@ function colorsComparison(guess, secret) {
 	} else {
 		console.log(`${match} találat a helyén van`);
 	}
-
-	drawHints(match, row);
+	return match;
+	//	drawBlack(match, row);
 }
 
-function drawHints(match, row, column) {
+function WhiteCount(guess, secret) {
+	let found = 0;
+	let guessCopy = guess.join("").split("");
+
+	for (let i = 0; i < secret.length; ++i) {
+		if (secret[i] !== guessCopy[i]) {
+			for (let j = 0; j < secret.length; ++j) {
+				if (
+					secret[i] === guessCopy[j] &&
+					secret[j] !== guessCopy[j] &&
+					i !== j
+				) {
+					found += 1;
+					guessCopy[j] = null;
+					break;
+				}
+			}
+		}
+	}
+	if (found === 0) {
+		console.log("Nincs találat");
+	} else {
+		console.log(`${found} találat nincs a helyén!`);
+	}
+	return found;
+	//drawWhite(found, row, match);
+}
+
+function drawBlack(match, row) {
 	console.log("match", match);
 
 	for (let success = 0; success < match; success++) {
 		document.querySelector(`.column${success}row${row}`).classList.add(`black`);
+	}
+}
+function drawWhite(found, row, match) {
+	console.log("hint", found);
+	console.log("row", row);
+	console.log("match", match);
+
+	for (let hint = 0; hint < found; hint++) {
+		document
+			.querySelector(`.column${hint + match}row${row}`)
+			.classList.add(`white`);
 	}
 }
 
