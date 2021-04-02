@@ -113,7 +113,7 @@ function getPickedColor(picked) {
 	if (guess.length === 4) {
 		colorMatch = getBlackCount(guess, secret);
 		drawBlack(colorMatch, attempt);
-		colorHint = WhiteCount(guess, secret);
+		colorHint = getWhiteCount(guess, secret);
 		drawWhite(colorHint, attempt, colorMatch);
 		guess = [];
 		pickedColor = [];
@@ -175,7 +175,7 @@ function getBlackCount(guess, secret) {
  *
  * @return Number, találatok száma
  */
-function WhiteCount(guess, secret) {
+function getWhiteCount(guess, secret) {
 	let found = 0;
 	let guessCopy = guess.join("").split("");
 
